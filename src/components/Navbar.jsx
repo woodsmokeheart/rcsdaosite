@@ -45,7 +45,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex ">
             RCS &nbsp;
-            <span className="sm:block hidden"> | Technologies</span>
+            <span> | Tech</span>
           </p>
         </Link>
 
@@ -77,6 +77,7 @@ const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
+              <div>Gitbook</div>
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}

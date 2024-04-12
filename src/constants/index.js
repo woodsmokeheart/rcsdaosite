@@ -22,6 +22,7 @@ import {
   wallet,
   ai,
   furia,
+  bots,
   // jobit,
   // tripguide,
   threejs,
@@ -208,24 +209,44 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Sniper Bots",
+    description:
+      "We will be releasing two bots. For tokens and NFT. The second one is already in development. Automated bots will be able to make purchases through the installed data.",
+    tags: [
+      {
+        name: "Python/Golang",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Ton Api",
+        color: "green-text-gradient",
+      },
+      {
+        name: "FunC",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: bots,
+  },
+  {
     name: "Wallet",
     description:
       "A prototype of a non-cathode wallet with the ability to exchange tokens, chat between addresses and premium features.We are not disclosing all killer functions at the moment in order to avoid competition",
     tags: [
       {
-        name: "react",
+        name: "React JS",
         color: "blue-text-gradient",
       },
       {
-        name: "ton api",
+        name: "Ton Api",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Tailwind",
         color: "pink-text-gradient",
       },
       {
-        name: "Func",
+        name: "FunC",
         color: "blue-text-gradient",
       },
     ],
@@ -237,23 +258,23 @@ const projects = [
       "The first social platform with user encouragement based on AI. Video, images, and text generation is possible inside the platform. Chat between users. and of course, content filtering.",
     tags: [
       {
-        name: "react",
+        name: "React JS",
         color: "blue-text-gradient",
       },
       {
-        name: "Ai",
+        name: "AI",
         color: "green-text-gradient",
       },
       {
-        name: "Func",
+        name: "FunC",
         color: "blue-text-gradient",
       },
       {
-        name: "scss",
+        name: "SCSS",
         color: "pink-text-gradient",
       },
       {
-        name: "ton api",
+        name: "Ton Api",
         color: "green-text-gradient",
       },
     ],
