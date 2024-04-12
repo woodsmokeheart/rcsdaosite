@@ -30,6 +30,7 @@ import wallet from "./1.png";
 import ai from "./2.png";
 import furia from "./3.png";
 import bots from "./4.jpg";
+import cot from "./5.png";
 
 export {
   logo,
@@ -60,5 +61,6 @@ export {
   furia,
   wallet,
   ai,
-  bots
+  bots,
+  cot,
 };

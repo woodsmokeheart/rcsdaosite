@@ -23,6 +23,7 @@ import {
   ai,
   furia,
   bots,
+  cot,
   // jobit,
   // tripguide,
   threejs,
@@ -209,9 +210,9 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Sniper Bots",
+    name: "Sniper bot for NFT",
     description:
-      "We will be releasing two bots. For tokens and NFT. The second one is already in development. Automated bots will be able to make purchases through the installed data.",
+      "A sniper bot for NFT. This bot will be fully automated and linked to the $RCS token. It will make purchases according to the specified parameters while you spend time with your family or sleep.",
     tags: [
       {
         name: "Python/Golang",
@@ -229,9 +230,49 @@ const projects = [
     image: bots,
   },
   {
+    name: "Sniper bot for tokens",
+    description:
+      "A sniper bot for tokens. This bot will be fully automated and linked to the $RCS token. It will make purchases according to the specified parameters while you spend time with your family or sleep.",
+    tags: [
+      {
+        name: "Python/Golang",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Ton Api",
+        color: "green-text-gradient",
+      },
+      {
+        name: "FunC",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: bots,
+  },
+  {
+    name: "Token CoT",
+    description:
+      "Launch of the main CoT token. So far, the RCS token is the basis for the technical component and a means of purchasing products for use. CoT will be the foundation for business solutions.",
+    tags: [
+      {
+        name: "Python/Golang",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Ton Api",
+        color: "green-text-gradient",
+      },
+      {
+        name: "FunC",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: cot,
+  },
+  {
     name: "Wallet",
     description:
-      "A prototype of a non-cathode wallet with the ability to exchange tokens, chat between addresses and premium features.We are not disclosing all killer functions at the moment in order to avoid competition",
+      "A prototype of a non-custodial wallet with the ability to exchange tokens, chat between addresses and premium features.At the moment, we are not disclosing all the killer features to avoid competition.",
     tags: [
       {
         name: "React JS",
