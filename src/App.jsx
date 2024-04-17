@@ -1,27 +1,23 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import HomePage from "./pages/HomePage/HomePage";
+import TokensPage from "./pages/TokensPage/TokensPage";
+
+const manifestUrl =
+  "https://raw.githubusercontent.com/woodsmokeheart/rcsdaosite/main/public/tonconnect-manifest.json";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        {/* <Tech /> */}
-        <Works />
-        <Feedbacks />
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
+    <TonConnectUIProvider manifestUrl={manifestUrl}>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/tokens" element={<TokensPage />} />
+        </Routes>
+      </BrowserRouter>
+    </TonConnectUIProvider>
   );
-}
+};
 
 export default App;

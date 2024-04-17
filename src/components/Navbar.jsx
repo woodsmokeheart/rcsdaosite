@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { TonConnectButton } from "@tonconnect/ui-react";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -50,11 +51,32 @@ const Navbar = () => {
         </Link>
 
         <ul className="list-none hidden sm:flex flex-row gap-10">
-          <div
-            className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+          <Link
+            to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
+            className="flex items-center gap-2"
+            onClick={() => {
+              setActive("");
+            }}
           >
-            Gitbook
-          </div>
+            <span
+              className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+            >
+              Gitbook
+            </span>
+          </Link>
+          <Link
+            to="/tokens"
+            className="flex items-center gap-2"
+            onClick={() => {
+              setActive("");
+            }}
+          >
+            <span
+              className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+            >
+              Tokens
+            </span>
+          </Link>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -82,11 +104,32 @@ const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
-              <div
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${"text-secondary"}`}
+              <Link
+                to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
+                className="flex items-center gap-2"
+                onClick={() => {
+                  setActive("");
+                }}
               >
-                Gitbook
-              </div>
+                <div
+                  className={`font-poppins font-medium cursor-pointer text-[16px] ${"text-secondary"}`}
+                >
+                  Gitbook
+                </div>
+              </Link>
+              <Link
+                to="/tokens"
+                className="flex items-center gap-2"
+                onClick={() => {
+                  setActive("");
+                }}
+              >
+                <span
+                  className={`${"text-secondary"} hover:text-white text-[16px] font-medium cursor-pointer`}
+                >
+                  Tokens
+                </span>
+              </Link>
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
@@ -104,6 +147,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        {/* <TonConnectButton /> */}
       </div>
     </nav>
   );
