@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { TonConnectButton } from "@tonconnect/ui-react";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
-const Navbar = () => {
+const Navbar = ({ type }) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -46,108 +45,110 @@ const Navbar = () => {
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex ">
             RCS &nbsp;
-            <span> | Tech</span>
+            <span className="hidden sm:inline"> | Tech</span>
           </p>
         </Link>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
-          <Link
-            to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
-            className="flex items-center gap-2"
-            onClick={() => {
-              setActive("");
-            }}
-          >
-            <span
-              className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+        {type === "home" ? (
+          <ul className="list-none hidden sm:flex flex-row gap-10">
+            <Link
+              to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
+              className="flex items-center gap-2"
+              onClick={() => {
+                setActive("");
+              }}
             >
-              Gitbook
-            </span>
-          </Link>
-          <Link
-            to="/tokens"
-            className="flex items-center gap-2"
-            onClick={() => {
-              setActive("");
-            }}
-          >
-            <span
-              className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+              <span
+                className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+              >
+                Gitbook
+              </span>
+            </Link>
+            <Link
+              to="/tokens"
+              className="flex items-center gap-2"
+              onClick={() => {
+                setActive("");
+              }}
             >
-              Tokens
-            </span>
-          </Link>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
+              <span
+                className={`${"text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+              >
+                Tokens
+              </span>
+            </Link>
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`${
+                  active === nav.title ? "text-white" : "text-secondary"
+                } hover:text-white text-[18px] font-medium cursor-pointer`}
+                onClick={() => setActive(nav.title)}
+              >
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+
+        {type === "home" ? (
+          <div className="sm:hidden flex flex-1 justify-end items-center">
+            <img
+              src={toggle ? close : menu}
+              alt="menu"
+              className="w-[28px] h-[28px] object-contain"
+              onClick={() => setToggle(!toggle)}
+            />
+            <div
               className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+                !toggle ? "hidden" : "flex"
+              } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28px] h-[28px] object-contain"
-            onClick={() => setToggle(!toggle)}
-          />
-
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
-              <Link
-                to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
-                className="flex items-center gap-2"
-                onClick={() => {
-                  setActive("");
-                }}
-              >
-                <div
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${"text-secondary"}`}
-                >
-                  Gitbook
-                </div>
-              </Link>
-              <Link
-                to="/tokens"
-                className="flex items-center gap-2"
-                onClick={() => {
-                  setActive("");
-                }}
-              >
-                <span
-                  className={`${"text-secondary"} hover:text-white text-[16px] font-medium cursor-pointer`}
-                >
-                  Tokens
-                </span>
-              </Link>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
+              <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
+                <Link
+                  to="https://ru-crypto-squad.gitbook.io/ru-crypto-squad-litepaper"
+                  className="flex items-center gap-2"
                   onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
+                    setActive("");
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
+                  <div
+                    className={`font-poppins font-medium cursor-pointer text-[16px] ${"text-secondary"}`}
+                  >
+                    Gitbook
+                  </div>
+                </Link>
+                <Link
+                  to="/tokens"
+                  className="flex items-center gap-2"
+                  onClick={() => {
+                    setActive("");
+                  }}
+                >
+                  <span
+                    className={`${"text-secondary"} hover:text-white text-[16px] font-medium cursor-pointer`}
+                  >
+                    Tokens
+                  </span>
+                </Link>
+                {navLinks.map((nav) => (
+                  <li
+                    key={nav.id}
+                    className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                      active === nav.title ? "text-white" : "text-secondary"
+                    }`}
+                    onClick={() => {
+                      setToggle(!toggle);
+                      setActive(nav.title);
+                    }}
+                  >
+                    <a href={`#${nav.id}`}>{nav.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-        {/* <TonConnectButton /> */}
+        ) : null}
       </div>
     </nav>
   );

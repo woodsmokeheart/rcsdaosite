@@ -17,7 +17,7 @@ const TokensPage = () => {
   return (
     <div className="relative z-0 bg-primary h-screen">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-        <Navbar />
+        <Navbar type="tokens" />
       </div>
 
       <motion.section
@@ -34,7 +34,7 @@ const TokensPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              margin: "40px 0",
+              margin: "40px 0 20px 0",
             }}
           >
             ROACH COIN SNIPER - $RCS
